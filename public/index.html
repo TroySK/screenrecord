@@ -5,27 +5,52 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <title>ScreenCapture.in - Instantly record your screen | No downloads required!</title>
     <style>
       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: url(images/bg.jpg) no-repeat center center fixed; 
+        text-align: center;
+        margin: auto;
+        border-top: 5px solid #000;
+        font-family: 'Roboto', sans-serif;
+        background-color: #ffffff;
+        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+      }
+      header {
+        margin: 50px auto;
+      }
+      img.logo {
+        width: 250px;
+      }
+      header > h1 {
+        margin: 0;
       }
       div#root {
-        margin-top: 35vh;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
       }
       .App {
         width: 300px;
         display: flex;
         justify-content: space-between;
       }
+      footer {
+        margin-top: 300px;
+      }
     </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <header>
+      <img src="images/logo.svg" alt="ScreenCapture.in - Instantly record your screen | No downloads required!" class="logo">
+      <h1>ScreenCapture.in</h1>
+      <p>Instantly record your screen and download the file to share it. No apps, no extensions, no gimmicks!</p>
+      <p>Works on Linux, Mac and Windows using latest Chrome, Firefox, Edge, Opera, Safari Preview and Brave.</p>
+      <p>Want audio support or upload to YouTube or maybe support MP4 video? Tweet to me <a href="https://twitter.com/troysk704" target="_blank">@troysk704</a> and let me know.</p>
+    </header>
     <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <footer>Build and maintained by <a href="https://www.troysk.com" target="_blank">Troy SK</a>. Hire me to build your unicorn!</footer>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143192747-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
