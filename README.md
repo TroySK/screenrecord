@@ -1,5 +1,5 @@
 > Deploy
 
 ```
-gh-pages -d build
+yarn run deploy
 ```
