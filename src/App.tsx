@@ -41,6 +41,8 @@ class App extends React.Component<Props, State> {
     this.setState({
       stream: displayMediaStream,
       recorder: screenRecorder,
+      recording: undefined,
+      chunks: [],
     });
     screenRecorder.addEventListener('dataavailable', (event:any) => {
       if (event.data && event.data.size > 0) {
