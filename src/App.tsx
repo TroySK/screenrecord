@@ -87,10 +87,10 @@ class App extends React.Component<Props, State> {
           <button onClick={() => this.stopCapture()} className={styles.StopButton} title='Stop' />
         }
         {!recorder &&
-          <button onClick={() => this.startCapture()} className={styles.RecordButton} title='Record' />
+          <button onClick={() => this.startCapture()} className={styles.RecordButton} title='Record'>Record</button>
         }
         <button disabled={!recording} className={styles.Hidden} title='Play' />
-        <button disabled={!recording} className={styles.DownloadButton} onClick={() => this.downloadFile()} title='Download' />
+        <button disabled={!recording} className={styles.DownloadButton} onClick={() => this.downloadFile()} title='Download'>Download</button>
         <button className={styles.Hidden} title='Settings' />
       </div>
     );
