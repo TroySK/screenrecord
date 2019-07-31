@@ -7,6 +7,7 @@ type State = {
   recording: any,
   chunks: any[],
   config: any,
+  playing: boolean,
 }
 type Props = {}
 class App extends React.Component<Props, State> {
@@ -16,6 +17,7 @@ class App extends React.Component<Props, State> {
     recording: undefined,
     chunks: [] as any,
     config: {},
+    playing: false,
   }
 
   getDisplayMedia() {
@@ -79,19 +81,41 @@ class App extends React.Component<Props, State> {
     return false;    
   }
 
+  play() {
+    if(this.state.recording) {
+      this.setState({
+        playing: true,
+      });
+    }
+  }
+
+  stop() {
+    this.setState({
+      playing: false,
+    });
+  }
+
   render() {
-    const { recorder, recording } = this.state;
+    const { recorder, recording, playing } = this.state;
     return (
       <div className="App">
+        {playing &&
+          <div className={styles.VideoModal}>
+            <button onClick={() => this.stop()}>Close</button>
+            <video controls autoPlay>
+              <source src={this.state.recording} type="video/webm"/>
+            </video>
+          </div>
+        }
         {recorder &&
           <button onClick={() => this.stopCapture()} className={styles.StopButton} title='Stop' />
         }
         {!recorder &&
           <button onClick={() => this.startCapture()} className={styles.RecordButton} title='Record'>Record</button>
         }
-        <button disabled={!recording} className={styles.Hidden} title='Play' />
+        <button onClick={() => this.play()} disabled={!recording} className={styles.PlayButton} title='Play'>Play</button>
         <button disabled={!recording} className={styles.DownloadButton} onClick={() => this.downloadFile()} title='Download'>Download</button>
-        <button className={styles.Hidden} title='Settings' />
+        <button className={styles.Hidden} title='Settings'>Settings</button>
       </div>
     );
   }
